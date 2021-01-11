@@ -2,8 +2,9 @@ package pfcpType_test
 
 import (
 	"encoding/hex"
-	"free5gc/lib/pfcp/pfcpType"
 	"testing"
+
+	"github.com/free5gc/pfcp/pfcpType"
 
 	"github.com/stretchr/testify/assert"
 )

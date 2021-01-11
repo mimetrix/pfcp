@@ -2,9 +2,9 @@ package pfcpUdp
 
 import (
 	"fmt"
-	"free5gc/lib/pfcp"
-	"free5gc/lib/pfcp/logger"
 	"net"
+
+	"github.com/free5gc/pfcp"
 )
 
 const (
@@ -111,7 +111,7 @@ func (pfcpServer *PfcpServer) Close() error {
 
 func (pfcpServer *PfcpServer) PutTransaction(tx *pfcp.Transaction) (err error) {
 
-	logger.PFCPLog.Traceln("In PutTransaction")
+	// logger.PFCPLog.Traceln("In PutTransaction")
 
 	consumerAddr := tx.ConsumerAddr
 	if _, exist := pfcpServer.ConsumerTable[consumerAddr]; !exist {
@@ -125,19 +125,19 @@ func (pfcpServer *PfcpServer) PutTransaction(tx *pfcp.Transaction) (err error) {
 		txTable[tx.SequenceNumber] = tx
 	} else {
 
-		logger.PFCPLog.Warnln("In PutTransaction")
-		logger.PFCPLog.Warnln("Consumer Addr: ", consumerAddr)
-		logger.PFCPLog.Warnln("Sequence number ", tx.SequenceNumber, " already exist!")
+		// logger.PFCPLog.Warnln("In PutTransaction")
+		// logger.PFCPLog.Warnln("Consumer Addr: ", consumerAddr)
+		// logger.PFCPLog.Warnln("Sequence number ", tx.SequenceNumber, " already exist!")
 		err = fmt.Errorf("Insert tx error: duplicate sequence number %d", tx.SequenceNumber)
 	}
 
-	logger.PFCPLog.Traceln("End PutTransaction")
+	// logger.PFCPLog.Traceln("End PutTransaction")
 	return
 }
 
 func (pfcpServer *PfcpServer) RemoveTransaction(tx *pfcp.Transaction) (err error) {
 
-	logger.PFCPLog.Traceln("In RemoveTransaction")
+	// logger.PFCPLog.Traceln("In RemoveTransaction")
 	consumerAddr := tx.ConsumerAddr
 	txTable := pfcpServer.ConsumerTable[consumerAddr]
 
@@ -145,21 +145,21 @@ func (pfcpServer *PfcpServer) RemoveTransaction(tx *pfcp.Transaction) (err error
 		tx = txTmp
 
 		if tx.TxType == pfcp.SendingRequest {
-			logger.PFCPLog.Infof("Remove Request Transaction [%d]\n", tx.SequenceNumber)
+			// logger.PFCPLog.Infof("Remove Request Transaction [%d]\n", tx.SequenceNumber)
 		} else if tx.TxType == pfcp.SendingResponse {
-			logger.PFCPLog.Infof("Remove Request Transaction [%d]\n", tx.SequenceNumber)
+			// logger.PFCPLog.Infof("Remove Request Transaction [%d]\n", tx.SequenceNumber)
 		}
 
 		delete(txTable, tx.SequenceNumber)
 	} else {
 
-		logger.PFCPLog.Warnln("In RemoveTransaction")
-		logger.PFCPLog.Warnln("Consumer IP: ", consumerAddr)
-		logger.PFCPLog.Warnln("Sequence number ", txTmp.SequenceNumber, " doesn't exist!")
+		// logger.PFCPLog.Warnln("In RemoveTransaction")
+		// logger.PFCPLog.Warnln("Consumer IP: ", consumerAddr)
+		// logger.PFCPLog.Warnln("Sequence number ", txTmp.SequenceNumber, " doesn't exist!")
 		err = fmt.Errorf("Remove tx error: transaction [%d] doesn't exist\n", txTmp.SequenceNumber)
 	}
 
-	logger.PFCPLog.Traceln("End RemoveTransaction")
+	// logger.PFCPLog.Traceln("End RemoveTransaction")
 	return
 }
 
@@ -170,20 +170,20 @@ func (pfcpServer *PfcpServer) StartTxLifeCycle(tx *pfcp.Transaction) {
 	//End Transaction
 	err := pfcpServer.RemoveTransaction(tx)
 	if err != nil {
-		logger.PFCPLog.Warnln(err)
+		// logger.PFCPLog.Warnln(err)
 	}
 }
 
 func (pfcpServer *PfcpServer) FindTransaction(msg *pfcp.Message, addr *net.UDPAddr) (*pfcp.Transaction, error) {
 	var tx *pfcp.Transaction
 
-	logger.PFCPLog.Traceln("In FindTransaction")
+	// logger.PFCPLog.Traceln("In FindTransaction")
 	consumerAddr := addr.String()
 
 	if msg.IsResponse() {
 		if _, exist := pfcpServer.ConsumerTable[consumerAddr]; !exist {
-			logger.PFCPLog.Warnln("In FindTransaction")
-			logger.PFCPLog.Warnf("Can't find txTable from consumer addr: [%s]", consumerAddr)
+			// logger.PFCPLog.Warnln("In FindTransaction")
+			// logger.PFCPLog.Warnf("Can't find txTable from consumer addr: [%s]", consumerAddr)
 			return nil, fmt.Errorf("FindTransaction Error: txTable not found")
 		}
 
@@ -191,9 +191,9 @@ func (pfcpServer *PfcpServer) FindTransaction(msg *pfcp.Message, addr *net.UDPAd
 		seqNum := msg.Header.SequenceNumber
 
 		if _, exist := txTable[seqNum]; !exist {
-			logger.PFCPLog.Warnln("In FindTransaction")
-			logger.PFCPLog.Warnln("Consumer Addr: ", consumerAddr)
-			logger.PFCPLog.Warnf("Can't find tx [%d] from txTable: ", seqNum)
+			// logger.PFCPLog.Warnln("In FindTransaction")
+			// logger.PFCPLog.Warnln("Consumer Addr: ", consumerAddr)
+			// logger.PFCPLog.Warnf("Can't find tx [%d] from txTable: ", seqNum)
 			return nil, fmt.Errorf("FindTransaction Error: sequence number [%d] not found", seqNum)
 		}
 
@@ -212,7 +212,7 @@ func (pfcpServer *PfcpServer) FindTransaction(msg *pfcp.Message, addr *net.UDPAd
 
 		tx = txTable[seqNum]
 	}
-	logger.PFCPLog.Traceln("End FindTransaction")
+	// logger.PFCPLog.Traceln("End FindTransaction")
 	return tx, nil
 
 }
@@ -227,7 +227,7 @@ func SendPfcpMessage(msg pfcp.Message, srcAddr *net.UDPAddr, dstAddr *net.UDPAdd
 	}
 	defer func() {
 		if err := conn.Close(); err != nil {
-			logger.PFCPLog.Warnf("Connection close error: %v", err)
+			// logger.PFCPLog.Warnf("Connection close error: %v", err)
 		}
 	}()
 
@@ -255,7 +255,7 @@ func ReceivePfcpMessage(msg *pfcp.Message, srcAddr *net.UDPAddr, dstAddr *net.UD
 	}
 	defer func() {
 		if err := conn.Close(); err != nil {
-			logger.PFCPLog.Warnf("Connection close error: %v", err)
+			// logger.PFCPLog.Warnf("Connection close error: %v", err)
 		}
 	}()
 

@@ -2,9 +2,10 @@ package pfcp_test
 
 import (
 	"encoding/hex"
-	"github.com/stretchr/testify/assert"
-	"free5gc/lib/pfcp"
 	"testing"
+
+	"github.com/free5gc/pfcp"
+	"github.com/stretchr/testify/assert"
 )
 
 const (

@@ -1,7 +1,6 @@
 package pfcp
 
 import (
-	"free5gc/lib/pfcp/logger"
 	"net"
 	"time"
 )
@@ -52,13 +51,13 @@ func NewTransaction(pfcpMSG Message, binaryMSG []byte, Conn *net.UDPConn, DestAd
 		tx.ConsumerAddr = DestAddr.String()
 	}
 
-	logger.PFCPLog.Tracef("New Transaction SEQ[%d] DestAddr[%s]", tx.SequenceNumber, DestAddr.String())
+	// logger.PFCPLog.Tracef("New Transaction SEQ[%d] DestAddr[%s]", tx.SequenceNumber, DestAddr.String())
 	return
 }
 
 func (transaction *Transaction) Start() {
 
-	logger.PFCPLog.Tracef("Start Transaction [%d]\n", transaction.SequenceNumber)
+	// logger.PFCPLog.Tracef("Start Transaction [%d]\n", transaction.SequenceNumber)
 
 	if transaction.TxType == SendingRequest {
 		for iter := 0; iter < NumOfResend; iter++ {
@@ -67,7 +66,7 @@ func (transaction *Transaction) Start() {
 			_, err := transaction.Conn.WriteToUDP(transaction.SendMsg, transaction.DestAddr)
 
 			if err != nil {
-				logger.PFCPLog.Warnf("Request Transaction [%d]: %s\n", transaction.SequenceNumber, err)
+				// logger.PFCPLog.Warnf("Request Transaction [%d]: %s\n", transaction.SequenceNumber, err)
 				return
 			}
 
@@ -75,12 +74,12 @@ func (transaction *Transaction) Start() {
 			case event := <-transaction.EventChannel:
 
 				if event == ReceiveValidResponse {
-					logger.PFCPLog.Tracef("Request Transaction [%d]: receive valid response\n", transaction.SequenceNumber)
+					// logger.PFCPLog.Tracef("Request Transaction [%d]: receive valid response\n", transaction.SequenceNumber)
 					return
 				}
 			case <-timer.C:
-				logger.PFCPLog.Tracef("Request Transaction [%d]: timeout expire\n", transaction.SequenceNumber)
-				logger.PFCPLog.Tracef("Request Transaction [%d]: Resend packet\n", transaction.SequenceNumber)
+				// logger.PFCPLog.Tracef("Request Transaction [%d]: timeout expire\n", transaction.SequenceNumber)
+				// logger.PFCPLog.Tracef("Request Transaction [%d]: Resend packet\n", transaction.SequenceNumber)
 				continue
 			}
 		}
@@ -92,7 +91,7 @@ func (transaction *Transaction) Start() {
 			_, err := transaction.Conn.WriteToUDP(transaction.SendMsg, transaction.DestAddr)
 
 			if err != nil {
-				logger.PFCPLog.Warnf("Response Transaction [%d]: sending error\n", transaction.SequenceNumber)
+				// logger.PFCPLog.Warnf("Response Transaction [%d]: sending error\n", transaction.SequenceNumber)
 				return
 			}
 
@@ -100,12 +99,12 @@ func (transaction *Transaction) Start() {
 			case event := <-transaction.EventChannel:
 
 				if event == ReceiveResendRequest {
-					logger.PFCPLog.Tracef("Response Transaction [%d]: receive resend request\n", transaction.SequenceNumber)
-					logger.PFCPLog.Tracef("Response Transaction [%d]: Resend packet\n", transaction.SequenceNumber)
+					// logger.PFCPLog.Tracef("Response Transaction [%d]: receive resend request\n", transaction.SequenceNumber)
+					// logger.PFCPLog.Tracef("Response Transaction [%d]: Resend packet\n", transaction.SequenceNumber)
 					continue
 				}
 			case <-timer.C:
-				logger.PFCPLog.Tracef("Response Transaction [%d]: timeout expire\n", transaction.SequenceNumber)
+				// logger.PFCPLog.Tracef("Response Transaction [%d]: timeout expire\n", transaction.SequenceNumber)
 				return
 			}
 		}

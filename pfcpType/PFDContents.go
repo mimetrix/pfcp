@@ -4,8 +4,6 @@ import (
 	"bytes"
 	"encoding/binary"
 	"fmt"
-
-	"free5gc/lib/pfcp/logger"
 )
 
 // PFDContents - describe in TS 29.244 Figure 8.2.39-1: PFD Contents
@@ -34,39 +32,39 @@ func (p *PFDContents) MarshalBinary() (data []byte, err error) {
 	}
 
 	if err := binary.Write(buf, binary.BigEndian, presenceByte); err != nil {
-		logger.PFCPLog.Warnf("presenceByte write failed: %v", err)
+		// logger.PFCPLog.Warnf("presenceByte write failed: %v", err)
 	}
 	if err := binary.Write(buf, binary.BigEndian, spareByte); err != nil {
-		logger.PFCPLog.Warnf("spareByte write failed: %v", err)
+		// logger.PFCPLog.Warnf("spareByte write failed: %v", err)
 	}
 
 	if p.FlowDescription != "" {
 		if err := binary.Write(buf, binary.BigEndian, uint16(len(p.FlowDescription))); err != nil {
-			logger.PFCPLog.Warnf("FlowDescription write failed: %v", err)
+			// logger.PFCPLog.Warnf("FlowDescription write failed: %v", err)
 		}
 		buf.WriteString(p.FlowDescription)
 	}
 
 	if p.URL != "" {
 		if err := binary.Write(buf, binary.BigEndian, uint16(len(p.URL))); err != nil {
-			logger.PFCPLog.Warnf("URL write failed: %v", err)
+			// logger.PFCPLog.Warnf("URL write failed: %v", err)
 		}
 		buf.WriteString(p.URL)
 	}
 
 	if p.DomainName != "" {
 		if err := binary.Write(buf, binary.BigEndian, uint16(len(p.DomainName))); err != nil {
-			logger.PFCPLog.Warnf("DomainName write failed: %v", err)
+			// logger.PFCPLog.Warnf("DomainName write failed: %v", err)
 		}
 		buf.WriteString(p.DomainName)
 	}
 
 	if p.CustomPFDContent != nil {
 		if err := binary.Write(buf, binary.BigEndian, uint16(len(p.CustomPFDContent))); err != nil {
-			logger.PFCPLog.Warnf("CustomPFDContent length write failed: %v", err)
+			// logger.PFCPLog.Warnf("CustomPFDContent length write failed: %v", err)
 		}
 		if err := binary.Write(buf, binary.BigEndian, p.CustomPFDContent); err != nil {
-			logger.PFCPLog.Warnf("CustomPFDContent write failed: %v", err)
+			// logger.PFCPLog.Warnf("CustomPFDContent write failed: %v", err)
 		}
 	}
 

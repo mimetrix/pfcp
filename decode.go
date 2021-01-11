@@ -3,7 +3,7 @@ package pfcp
 import (
 	"fmt"
 
-	"free5gc/lib/tlv"
+	"github.com/free5gc/tlv"
 )
 
 func (m *Message) Unmarshal(data []byte) error {

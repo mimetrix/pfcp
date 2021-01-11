@@ -1,10 +1,11 @@
 package pfcp_test
 
 import (
-	"free5gc/lib/pfcp"
-	"free5gc/lib/pfcp/pfcpType"
 	"net"
 	"testing"
+
+	"github.com/free5gc/pfcp"
+	"github.com/free5gc/pfcp/pfcpType"
 
 	"github.com/stretchr/testify/require"
 )

@@ -2,8 +2,6 @@ package pfcpType
 
 import (
 	"fmt"
-	"free5gc/lib/pfcp/logger"
-	"free5gc/lib/util_3gpp"
 	"math/bits"
 	"net"
 )
@@ -17,7 +15,7 @@ type UserPlaneIPResourceInformation struct {
 	TeidRange       uint8
 	Ipv4Address     net.IP
 	Ipv6Address     net.IP
-	NetworkInstance util_3gpp.Dnn
+	NetworkInstance Dnn
 	SourceInterface uint8 // 0x00001111
 }
 
@@ -61,7 +59,7 @@ func (u *UserPlaneIPResourceInformation) MarshalBinary() (data []byte, err error
 	// Octet k to l
 	if u.Assoni {
 		if assoniBuf, err := u.NetworkInstance.MarshalBinary(); err != nil {
-			logger.PFCPLog.Warnf("MarshalBinary failed: %+v", err)
+			// logger.PFCPLog.Warnf("MarshalBinary failed: %+v", err)
 		} else {
 			data = append(data, assoniBuf...)
 		}

@@ -4,7 +4,8 @@ import (
 	"bytes"
 	"encoding/binary"
 	"errors"
-	"free5gc/lib/pfcp/logger"
+
+	"github.com/rs/zerolog/log"
 )
 
 const PfcpVersion uint8 = 1
@@ -40,17 +41,17 @@ func (h *Header) MarshalBinary() (data []byte, err error) {
 	buffer := new(bytes.Buffer)
 	tmpbuf = h.Version<<5 | (h.MP&1)<<1 | (h.S & 1)
 	if err := binary.Write(buffer, binary.BigEndian, &tmpbuf); err != nil {
-		logger.PFCPLog.Warnf("Binary write error: %+v", err)
+		log.Warn().Err(err).Msg("PFCP: Binary write error")
 	}
 	if err := binary.Write(buffer, binary.BigEndian, &h.MessageType); err != nil {
-		logger.PFCPLog.Warnf("Binary write error: %+v", err)
+		log.Warn().Err(err).Msg("PFCP: Binary write error")
 	}
 	if err := binary.Write(buffer, binary.BigEndian, &h.MessageLength); err != nil {
-		logger.PFCPLog.Warnf("Binary write error: %+v", err)
+		log.Warn().Err(err).Msg("PFCP: Binary write error")
 	}
 	if h.S&1 != 0 {
 		if err := binary.Write(buffer, binary.BigEndian, &h.SEID); err != nil {
-			logger.PFCPLog.Warnf("Binary write error: %+v", err)
+			log.Warn().Err(err).Msg("PFCP: Binary write error")
 		}
 	}
 	var snAndSpare uint32
@@ -61,12 +62,12 @@ func (h *Header) MarshalBinary() (data []byte, err error) {
 		spareAndMP = 0
 	}
 	if h.SequenceNumber > (1<<24 - 1) {
-		logger.PFCPLog.Warnf("Sequence number must be less 24bit integer")
+		log.Warn().Msg("Sequence number must be less 24bit integer")
 	}
 
 	snAndSpare = h.SequenceNumber<<8 | uint32(spareAndMP)
 	if err := binary.Write(buffer, binary.BigEndian, &snAndSpare); err != nil {
-		logger.PFCPLog.Warnf("Binary write error: %+v", err)
+		log.Warn().Err(err).Msg("PFCP: Binary write error")
 	}
 	return buffer.Bytes(), nil
 }
@@ -79,19 +80,19 @@ func (h *Header) UnmarshalBinary(data []byte) error {
 	}
 	h.Version, h.MP, h.S = tmpBuf>>5, (tmpBuf&0x02)>>1, tmpBuf&0x01
 	if err := binary.Read(byteReader, binary.BigEndian, &h.MessageType); err != nil {
-		logger.PFCPLog.Warnf("Binary write error: %+v", err)
+		log.Warn().Err(err).Msg("PFCP: Binary read error")
 	}
 	if err := binary.Read(byteReader, binary.BigEndian, &h.MessageLength); err != nil {
-		logger.PFCPLog.Warnf("Binary write error: %+v", err)
+		log.Warn().Err(err).Msg("PFCP: Binary read error")
 	}
 	if h.S&1 != 0 {
 		if err := binary.Read(byteReader, binary.BigEndian, &h.SEID); err != nil {
-			logger.PFCPLog.Warnf("Binary write error: %+v", err)
+			log.Warn().Err(err).Msg("PFCP: Binary read error")
 		}
 	}
 	var snAndSpare uint32
 	if err := binary.Read(byteReader, binary.BigEndian, &snAndSpare); err != nil {
-		logger.PFCPLog.Warnf("Binary write error: %+v", err)
+		log.Warn().Err(err).Msg("PFCP: Binary read error")
 	}
 
 	h.SequenceNumber = snAndSpare >> 8
