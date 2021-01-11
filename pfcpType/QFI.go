@@ -1,5 +1,5 @@
 package pfcpType
 
 type QFI struct {
-	QFIdata []byte `json:"qfIdata"`
+	QFIdata []byte `tlv:"124" json:"qfIdata"`
 }
