@@ -4,7 +4,7 @@ import (
 	"encoding/hex"
 	"testing"
 
-	"github.com/free5gc/pfcp/pfcpType"
+	"github.com/mimetrix/pfcp/pfcpType"
 
 	"github.com/stretchr/testify/assert"
 )

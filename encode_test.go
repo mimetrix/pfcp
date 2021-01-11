@@ -4,8 +4,8 @@ import (
 	"net"
 	"testing"
 
-	"github.com/free5gc/pfcp"
-	"github.com/free5gc/pfcp/pfcpType"
+	"github.com/mimetrix/pfcp"
+	"github.com/mimetrix/pfcp/pfcpType"
 
 	"github.com/stretchr/testify/require"
 )

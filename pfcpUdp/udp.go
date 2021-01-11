@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net"
 
-	"github.com/free5gc/pfcp"
+	"github.com/mimetrix/pfcp"
 )
 
 const (

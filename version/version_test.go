@@ -3,7 +3,7 @@ package version_test
 import (
 	"testing"
 
-	"github.com/free5gc/pfcp/version"
+	"github.com/mimetrix/pfcp/version"
 	"github.com/stretchr/testify/assert"
 )
 
