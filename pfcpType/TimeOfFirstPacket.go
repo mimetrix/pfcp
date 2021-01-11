@@ -7,7 +7,7 @@ import (
 )
 
 type TimeOfFirstPacket struct {
-	TimeOfFirstPacket time.Time
+	TimeOfFirstPacket time.Time `json:"timeOfFirstPacket"`
 }
 
 func (t *TimeOfFirstPacket) MarshalBinary() (data []byte, err error) {

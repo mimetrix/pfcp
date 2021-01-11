@@ -1,5 +1,5 @@
 package pfcpType
 
 type FlowInformation struct {
-	FlowInformationdata []byte
+	FlowInformationdata []byte `json:"flowInformationdata"`
 }

@@ -5,7 +5,7 @@ import (
 )
 
 type DownlinkDataNotificationDelay struct {
-	DelayValue uint8
+	DelayValue uint8 `json:"delayValue"`
 }
 
 func (d *DownlinkDataNotificationDelay) MarshalBinary() (data []byte, err error) {

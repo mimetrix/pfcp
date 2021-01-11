@@ -1,5 +1,5 @@
 package pfcpType
 
 type UserPlaneInactivityTimer struct {
-	UserPlaneInactivityTimerdata []byte
+	UserPlaneInactivityTimerdata []byte `json:"userPlaneInactivityTimerdata"`
 }

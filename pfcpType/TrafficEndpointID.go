@@ -5,7 +5,7 @@ import (
 )
 
 type TrafficEndpointID struct {
-	TrafficEndpointIdValue uint8
+	TrafficEndpointIdValue uint8 `json:"trafficEndpointIdValue"`
 }
 
 func (t *TrafficEndpointID) MarshalBinary() (data []byte, err error) {

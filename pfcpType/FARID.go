@@ -6,7 +6,7 @@ import (
 )
 
 type FARID struct {
-	FarIdValue uint32
+	FarIdValue uint32 `json:"farIdValue"`
 }
 
 func (f *FARID) MarshalBinary() (data []byte, err error) {

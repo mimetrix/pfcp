@@ -1,5 +1,5 @@
 package pfcpType
 
 type QueryURRReference struct {
-	QueryURRReferencedata []byte
+	QueryURRReferencedata []byte `json:"queryURRReferencedata"`
 }

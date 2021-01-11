@@ -1,5 +1,5 @@
 package pfcpType
 
 type UpdateBARSessionModificationRequest struct {
-	UpdateBARSessionModificationRequestdata []byte
+	UpdateBARSessionModificationRequestdata []byte `json:"updateBARSessionModificationRequestdata"`
 }

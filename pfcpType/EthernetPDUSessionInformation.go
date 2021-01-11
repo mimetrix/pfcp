@@ -1,5 +1,5 @@
 package pfcpType
 
 type EthernetPDUSessionInformation struct {
-	EthernetPDUSessionInformationdata []byte
+	EthernetPDUSessionInformationdata []byte `json:"ethernetPDUSessionInformationdata"`
 }

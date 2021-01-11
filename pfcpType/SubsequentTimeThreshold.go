@@ -6,7 +6,7 @@ import (
 )
 
 type SubsequentTimeThreshold struct {
-	SubsequentTimeThreshold uint32
+	SubsequentTimeThreshold uint32 `json:"subsequentTimeThreshold"`
 }
 
 func (s *SubsequentTimeThreshold) MarshalBinary() (data []byte, err error) {

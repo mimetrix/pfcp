@@ -1,5 +1,5 @@
 package pfcpType
 
 type PFDContext struct {
-	PFDContextdata []byte
+	PFDContextdata []byte `json:"pfdContextdata"`
 }

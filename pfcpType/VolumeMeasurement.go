@@ -6,12 +6,12 @@ import (
 )
 
 type VolumeMeasurement struct {
-	Dlvol          bool
-	Ulvol          bool
-	Tovol          bool
-	TotalVolume    uint64
-	UplinkVolume   uint64
-	DownlinkVolume uint64
+	Dlvol          bool   `json:"dlvol"`
+	Ulvol          bool   `json:"ulvol"`
+	Tovol          bool   `json:"tovol"`
+	TotalVolume    uint64 `json:"totalVolume"`
+	UplinkVolume   uint64 `json:"uplinkVolume"`
+	DownlinkVolume uint64 `json:"downlinkVolume"`
 }
 
 func (v *VolumeMeasurement) MarshalBinary() (data []byte, err error) {

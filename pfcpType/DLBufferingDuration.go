@@ -6,8 +6,8 @@ import (
 )
 
 type DLBufferingDuration struct {
-	TimerUnit  uint8 // 0x11100000
-	TimerValue uint8 // 0x00011111
+	TimerUnit  uint8 `json:"timerUnit"`  // 0x11100000
+	TimerValue uint8 `json:"timerValue"` // 0x00011111
 }
 
 func (d *DLBufferingDuration) MarshalBinary() (data []byte, err error) {

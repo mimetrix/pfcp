@@ -1,5 +1,5 @@
 package pfcpType
 
 type ApplicationInstanceID struct {
-	ApplicationInstanceIDdata []byte
+	ApplicationInstanceIDdata []byte `json:"applicationInstanceIDdata"`
 }

@@ -6,8 +6,8 @@ import (
 )
 
 type GateStatus struct {
-	UlGate uint8 // 0x00001100
-	DlGate uint8 // 0x00000011
+	UlGate uint8 `json:"ulGate"` // 0x00001100
+	DlGate uint8 `json:"dlGate"` // 0x00000011
 }
 
 func (g *GateStatus) MarshalBinary() (data []byte, err error) {

@@ -1,5 +1,5 @@
 package pfcpType
 
 type UsageInformation struct {
-	UsageInformationdata []byte
+	UsageInformationdata []byte `json:"usageInformationdata"`
 }

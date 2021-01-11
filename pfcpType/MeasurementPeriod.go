@@ -6,7 +6,7 @@ import (
 )
 
 type MeasurementPeriod struct {
-	MeasurementPeriod uint32
+	MeasurementPeriod uint32 `json:"measurementPeriod"`
 }
 
 func (m *MeasurementPeriod) MarshalBinary() (data []byte, err error) {

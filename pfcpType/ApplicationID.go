@@ -1,7 +1,7 @@
 package pfcpType
 
 type ApplicationID struct {
-	ApplicationIdentifier []byte
+	ApplicationIdentifier []byte `json:"applicationIdentifier"`
 }
 
 func (a *ApplicationID) MarshalBinary() (data []byte, err error) {

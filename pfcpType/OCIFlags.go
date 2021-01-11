@@ -1,5 +1,5 @@
 package pfcpType
 
 type OCIFlags struct {
-	OCIFlagsdata []byte
+	OCIFlagsdata []byte `json:"ociFlagsdata"`
 }

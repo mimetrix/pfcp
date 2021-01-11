@@ -7,8 +7,8 @@ import (
 )
 
 type Message struct {
-	RemoteAddr  *net.UDPAddr
-	PfcpMessage *pfcp.Message
+	RemoteAddr  *net.UDPAddr  `json:"remoteAddr"`
+	PfcpMessage *pfcp.Message `json:"pfcpMessage"`
 }
 
 func NewMessage(remoteAddr *net.UDPAddr, pfcpMessage *pfcp.Message) (msg Message) {

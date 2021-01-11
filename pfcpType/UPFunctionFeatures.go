@@ -23,7 +23,7 @@ const (
 )
 
 type UPFunctionFeatures struct {
-	SupportedFeatures uint16
+	SupportedFeatures uint16 `json:"supportedFeatures"`
 }
 
 func (u *UPFunctionFeatures) MarshalBinary() (data []byte, err error) {

@@ -22,14 +22,14 @@ const (
 
 // Transaction - represent the transaction state of pfcp message
 type Transaction struct {
-	SendMsg        []byte
-	SequenceNumber uint32
-	MessageType    MessageType
-	TxType         TransactionType
-	EventChannel   chan EventType
-	Conn           *net.UDPConn
-	DestAddr       *net.UDPAddr
-	ConsumerAddr   string
+	SendMsg        []byte          `json:"sendMsg"`
+	SequenceNumber uint32          `json:"sequenceNumber"`
+	MessageType    MessageType     `json:"messageType"`
+	TxType         TransactionType `json:"txType"`
+	EventChannel   chan EventType  `json:"eventChannel"`
+	Conn           *net.UDPConn    `json:"conn"`
+	DestAddr       *net.UDPAddr    `json:"destAddr"`
+	ConsumerAddr   string          `json:"consumerAddr"`
 }
 
 // NewTransaction - create pfcp transaction object

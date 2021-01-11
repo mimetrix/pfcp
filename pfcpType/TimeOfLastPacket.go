@@ -7,7 +7,7 @@ import (
 )
 
 type TimeOfLastPacket struct {
-	TimeOfLastPacket time.Time
+	TimeOfLastPacket time.Time `json:"timeOfLastPacket"`
 }
 
 func (t *TimeOfLastPacket) MarshalBinary() (data []byte, err error) {

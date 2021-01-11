@@ -1,5 +1,5 @@
 package pfcpType
 
 type DLFlowLevelMarking struct {
-	DLFlowLevelMarkingdata []byte
+	DLFlowLevelMarkingdata []byte `json:"dlFlowLevelMarkingdata"`
 }

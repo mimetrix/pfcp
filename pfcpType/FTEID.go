@@ -7,14 +7,14 @@ import (
 )
 
 type FTEID struct {
-	Chid        bool
-	Ch          bool
-	V6          bool
-	V4          bool
-	Teid        uint32
-	Ipv4Address net.IP
-	Ipv6Address net.IP
-	ChooseId    uint8
+	Chid        bool   `json:"chid"`
+	Ch          bool   `json:"ch"`
+	V6          bool   `json:"v6"`
+	V4          bool   `json:"v4"`
+	Teid        uint32 `json:"teid"`
+	Ipv4Address net.IP `json:"ipv4Address"`
+	Ipv6Address net.IP `json:"ipv6Address"`
+	ChooseId    uint8  `json:"chooseId"`
 }
 
 func (f *FTEID) MarshalBinary() (data []byte, err error) {

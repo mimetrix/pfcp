@@ -1,5 +1,5 @@
 package pfcpType
 
 type AggregatedURRID struct {
-	AggregatedURRIDdata []byte
+	AggregatedURRIDdata []byte `json:"aggregatedURRIDdata"`
 }

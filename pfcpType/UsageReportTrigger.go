@@ -1,5 +1,5 @@
 package pfcpType
 
 type UsageReportTrigger struct {
-	UsageReportTriggerdata []byte
+	UsageReportTriggerdata []byte `json:"usageReportTriggerdata"`
 }

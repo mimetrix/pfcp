@@ -1,5 +1,5 @@
 package pfcpType
 
 type MACAddressesDetected struct {
-	MACAddressesDetecteddata []byte
+	MACAddressesDetecteddata []byte `json:"macAddressesDetecteddata"`
 }

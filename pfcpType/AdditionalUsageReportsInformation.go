@@ -1,5 +1,5 @@
 package pfcpType
 
 type AdditionalUsageReportsInformation struct {
-	AdditionalUsageReportsInformationdata []byte
+	AdditionalUsageReportsInformationdata []byte `json:"additionalUsageReportsInformationdata"`
 }

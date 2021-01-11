@@ -1,5 +1,5 @@
 package pfcpType
 
 type GracefulReleasePeriod struct {
-	GracefulReleasePerioddata []byte
+	GracefulReleasePerioddata []byte `json:"gracefulReleasePerioddata"`
 }

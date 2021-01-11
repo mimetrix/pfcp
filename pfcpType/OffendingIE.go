@@ -6,7 +6,7 @@ import (
 )
 
 type OffendingIE struct {
-	TypeOfOffendingIe uint16
+	TypeOfOffendingIe uint16 `json:"typeOfOffendingIe"`
 }
 
 func (o *OffendingIE) MarshalBinary() (data []byte, err error) {

@@ -1,5 +1,5 @@
 package pfcpType
 
 type MACAddress struct {
-	MACAddressdata []byte
+	MACAddressdata []byte `json:"macAddressdata"`
 }

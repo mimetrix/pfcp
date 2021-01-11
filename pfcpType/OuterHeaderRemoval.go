@@ -12,7 +12,7 @@ const (
 )
 
 type OuterHeaderRemoval struct {
-	OuterHeaderRemovalDescription uint8
+	OuterHeaderRemovalDescription uint8 `json:"outerHeaderRemovalDescription"`
 }
 
 func (o *OuterHeaderRemoval) MarshalBinary() (data []byte, err error) {

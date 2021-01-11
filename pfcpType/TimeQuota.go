@@ -6,7 +6,7 @@ import (
 )
 
 type TimeQuota struct {
-	TimeQuotaValue uint32
+	TimeQuotaValue uint32 `json:"timeQuotaValue"`
 }
 
 func (t *TimeQuota) MarshalBinary() (data []byte, err error) {

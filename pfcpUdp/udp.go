@@ -13,11 +13,11 @@ const (
 )
 
 type PfcpServer struct {
-	Addr string
-	Conn *net.UDPConn
+	Addr string       `json:"addr"`
+	Conn *net.UDPConn `json:"conn"`
 	//Consumer Table
 	//Map Consumer IP to its tx table
-	ConsumerTable map[string]pfcp.TxTable
+	ConsumerTable map[string]pfcp.TxTable `json:"consumerTable"`
 }
 
 func NewPfcpServer(addr string) PfcpServer {

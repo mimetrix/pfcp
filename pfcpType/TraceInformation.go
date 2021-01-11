@@ -1,5 +1,5 @@
 package pfcpType
 
 type TraceInformation struct {
-	TraceInformationdata []byte
+	TraceInformationdata []byte `json:"traceInformationdata"`
 }

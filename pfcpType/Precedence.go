@@ -6,7 +6,7 @@ import (
 )
 
 type Precedence struct {
-	PrecedenceValue uint32
+	PrecedenceValue uint32 `json:"precedenceValue"`
 }
 
 func (p *Precedence) MarshalBinary() (data []byte, err error) {

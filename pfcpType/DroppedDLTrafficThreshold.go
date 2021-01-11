@@ -6,10 +6,10 @@ import (
 )
 
 type DroppedDLTrafficThreshold struct {
-	Dlby                        bool
-	Dlpa                        bool
-	DownlinkPackets             uint64
-	NumberOfBytesOfDownlinkData uint64
+	Dlby                        bool   `json:"dlby"`
+	Dlpa                        bool   `json:"dlpa"`
+	DownlinkPackets             uint64 `json:"downlinkPackets"`
+	NumberOfBytesOfDownlinkData uint64 `json:"numberOfBytesOfDownlinkData"`
 }
 
 func (d *DroppedDLTrafficThreshold) MarshalBinary() (data []byte, err error) {

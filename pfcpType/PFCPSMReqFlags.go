@@ -5,9 +5,9 @@ import (
 )
 
 type PFCPSMReqFlags struct {
-	Qaurr bool
-	Sndem bool
-	Drobu bool
+	Qaurr bool `json:"qaurr"`
+	Sndem bool `json:"sndem"`
+	Drobu bool `json:"drobu"`
 }
 
 func (p *PFCPSMReqFlags) MarshalBinary() (data []byte, err error) {

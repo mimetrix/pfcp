@@ -1,5 +1,5 @@
 package pfcpType
 
 type STAG struct {
-	STAGdata []byte
+	STAGdata []byte `json:"staGdata"`
 }

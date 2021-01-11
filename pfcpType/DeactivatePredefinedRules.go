@@ -1,7 +1,7 @@
 package pfcpType
 
 type DeactivatePredefinedRules struct {
-	PredefinedRulesName []byte
+	PredefinedRulesName []byte `json:"predefinedRulesName"`
 }
 
 func (d *DeactivatePredefinedRules) MarshalBinary() (data []byte, err error) {

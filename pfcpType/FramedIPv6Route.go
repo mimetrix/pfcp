@@ -1,5 +1,5 @@
 package pfcpType
 
 type FramedIPv6Route struct {
-	FramedIPv6Routedata []byte
+	FramedIPv6Routedata []byte `json:"framedIPv6Routedata"`
 }

@@ -5,9 +5,9 @@ import (
 )
 
 type MeasurementMethod struct {
-	Event bool
-	Volum bool
-	Durat bool
+	Event bool `json:"event"`
+	Volum bool `json:"volum"`
+	Durat bool `json:"durat"`
 }
 
 func (m *MeasurementMethod) MarshalBinary() (data []byte, err error) {

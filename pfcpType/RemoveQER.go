@@ -1,5 +1,5 @@
 package pfcpType
 
 type RemoveQER struct {
-	RemoveQERdata []byte
+	RemoveQERdata []byte `json:"removeQERdata"`
 }

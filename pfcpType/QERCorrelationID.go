@@ -6,7 +6,7 @@ import (
 )
 
 type QERCorrelationID struct {
-	QerCorrelationIdValue uint32
+	QerCorrelationIdValue uint32 `json:"qerCorrelationIdValue"`
 }
 
 func (q *QERCorrelationID) MarshalBinary() (data []byte, err error) {

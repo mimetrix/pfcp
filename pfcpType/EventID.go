@@ -6,7 +6,7 @@ import (
 )
 
 type EventID struct {
-	EventId uint32
+	EventId uint32 `json:"eventId"`
 }
 
 func (e *EventID) MarshalBinary() (data []byte, err error) {

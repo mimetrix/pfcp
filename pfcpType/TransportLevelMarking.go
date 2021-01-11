@@ -5,7 +5,7 @@ import (
 )
 
 type TransportLevelMarking struct {
-	TosTrafficClass []byte
+	TosTrafficClass []byte `json:"tosTrafficClass"`
 }
 
 func (t *TransportLevelMarking) MarshalBinary() (data []byte, err error) {

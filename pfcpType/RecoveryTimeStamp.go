@@ -7,7 +7,7 @@ import (
 )
 
 type RecoveryTimeStamp struct {
-	RecoveryTimeStamp time.Time
+	RecoveryTimeStamp time.Time `json:"recoveryTimeStamp"`
 }
 
 func (r *RecoveryTimeStamp) MarshalBinary() (data []byte, err error) {

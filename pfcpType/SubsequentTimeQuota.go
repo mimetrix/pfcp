@@ -1,5 +1,5 @@
 package pfcpType
 
 type SubsequentTimeQuota struct {
-	SubsequentTimeQuotadata []byte
+	SubsequentTimeQuotadata []byte `json:"subsequentTimeQuotadata"`
 }

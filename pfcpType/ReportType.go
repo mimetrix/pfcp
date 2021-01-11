@@ -5,10 +5,10 @@ import (
 )
 
 type ReportType struct {
-	Upir bool
-	Erir bool
-	Usar bool
-	Dldr bool
+	Upir bool `json:"upir"`
+	Erir bool `json:"erir"`
+	Usar bool `json:"usar"`
+	Dldr bool `json:"dldr"`
 }
 
 func (r *ReportType) MarshalBinary() (data []byte, err error) {

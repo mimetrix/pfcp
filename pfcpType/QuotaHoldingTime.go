@@ -6,7 +6,7 @@ import (
 )
 
 type QuotaHoldingTime struct {
-	QuotaHoldingTimeValue uint32
+	QuotaHoldingTimeValue uint32 `json:"quotaHoldingTimeValue"`
 }
 
 func (q *QuotaHoldingTime) MarshalBinary() (data []byte, err error) {

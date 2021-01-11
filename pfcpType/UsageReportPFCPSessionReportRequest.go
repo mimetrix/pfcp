@@ -1,5 +1,5 @@
 package pfcpType
 
 type UsageReportPFCPSessionReportRequest struct {
-	UsageReportPFCPSessionReportRequestdata []byte
+	UsageReportPFCPSessionReportRequestdata []byte `json:"usageReportPFCPSessionReportRequestdata"`
 }

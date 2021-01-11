@@ -1,5 +1,5 @@
 package pfcpType
 
 type PacketRate struct {
-	PacketRatedata []byte
+	PacketRatedata []byte `json:"packetRatedata"`
 }

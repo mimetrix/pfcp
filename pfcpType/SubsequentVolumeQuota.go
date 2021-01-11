@@ -1,5 +1,5 @@
 package pfcpType
 
 type SubsequentVolumeQuota struct {
-	SubsequentVolumeQuotadata []byte
+	SubsequentVolumeQuotadata []byte `json:"subsequentVolumeQuotadata"`
 }

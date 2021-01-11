@@ -7,8 +7,8 @@ import (
 )
 
 type MBR struct {
-	UlMbr uint64 // 40-bit data
-	DlMbr uint64 // 40-bit data
+	UlMbr uint64 `json:"ulMbr"` // 40-bit data
+	DlMbr uint64 `json:"dlMbr"` // 40-bit data
 }
 
 func (m *MBR) MarshalBinary() (data []byte, err error) {

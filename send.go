@@ -19,9 +19,9 @@ func ReceiveNode(seq int) {
 
 type Node struct {
 	index    int
-	State    NodeState
-	Request  *Message
-	Response *Message
+	State    NodeState `json:"state"`
+	Request  *Message  `json:"request"`
+	Response *Message  `json:"response"`
 }
 
 func CreateNode() (node *Node) {

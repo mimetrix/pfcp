@@ -5,7 +5,7 @@ import (
 )
 
 type NodeReportType struct {
-	Upfr bool
+	Upfr bool `json:"upfr"`
 }
 
 func (n *NodeReportType) MarshalBinary() (data []byte, err error) {

@@ -1,5 +1,5 @@
 package pfcpType
 
 type Timer struct {
-	Timerdata []byte
+	Timerdata []byte `json:"timerdata"`
 }

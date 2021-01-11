@@ -8,10 +8,10 @@ import (
 
 // PFDContents - describe in TS 29.244 Figure 8.2.39-1: PFD Contents
 type PFDContents struct {
-	FlowDescription  string
-	URL              string
-	DomainName       string
-	CustomPFDContent []byte
+	FlowDescription  string `json:"flowDescription"`
+	URL              string `json:"url"`
+	DomainName       string `json:"domainName"`
+	CustomPFDContent []byte `json:"customPFDContent"`
 }
 
 func (p *PFDContents) MarshalBinary() (data []byte, err error) {

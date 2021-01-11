@@ -6,7 +6,7 @@ import (
 )
 
 type DurationMeasurement struct {
-	DurationValue uint32
+	DurationValue uint32 `json:"durationValue"`
 }
 
 func (d *DurationMeasurement) MarshalBinary() (data []byte, err error) {

@@ -1,5 +1,5 @@
 package pfcpType
 
 type Metric struct {
-	Metricdata []byte
+	Metricdata []byte `json:"metricdata"`
 }

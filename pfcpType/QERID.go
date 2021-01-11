@@ -1,5 +1,5 @@
 package pfcpType
 
 type QERID struct {
-	QERIDdata []byte
+	QERIDdata []byte `json:"qeriDdata"`
 }

@@ -10,7 +10,7 @@ const (
 )
 
 type CPFunctionFeatures struct {
-	SupportedFeatures uint8
+	SupportedFeatures uint8 `json:"supportedFeatures"`
 }
 
 func (c *CPFunctionFeatures) MarshalBinary() (data []byte, err error) {

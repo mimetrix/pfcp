@@ -1,5 +1,5 @@
 package pfcpType
 
 type FramedRoute struct {
-	FramedRoutedata []byte
+	FramedRoutedata []byte `json:"framedRoutedata"`
 }

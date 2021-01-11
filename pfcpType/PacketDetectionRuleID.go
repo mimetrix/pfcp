@@ -6,7 +6,7 @@ import (
 )
 
 type PacketDetectionRuleID struct {
-	RuleId uint16
+	RuleId uint16 `json:"ruleId"`
 }
 
 func (p *PacketDetectionRuleID) MarshalBinary() (data []byte, err error) {

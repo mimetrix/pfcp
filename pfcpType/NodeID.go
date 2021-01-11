@@ -13,8 +13,8 @@ const (
 )
 
 type NodeID struct {
-	NodeIdType  uint8 // 0x00001111
-	NodeIdValue []byte
+	NodeIdType  uint8  `json:"nodeIdType"` // 0x00001111
+	NodeIdValue []byte `json:"nodeIdValue"`
 }
 
 func (n *NodeID) MarshalBinary() (data []byte, err error) {

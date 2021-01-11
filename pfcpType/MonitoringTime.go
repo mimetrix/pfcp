@@ -7,7 +7,7 @@ import (
 )
 
 type MonitoringTime struct {
-	MonitoringTime time.Time
+	MonitoringTime time.Time `json:"monitoringTime"`
 }
 
 func (m *MonitoringTime) MarshalBinary() (data []byte, err error) {

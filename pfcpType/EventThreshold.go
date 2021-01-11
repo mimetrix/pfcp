@@ -6,7 +6,7 @@ import (
 )
 
 type EventThreshold struct {
-	EventThreshold uint32
+	EventThreshold uint32 `json:"eventThreshold"`
 }
 
 func (e *EventThreshold) MarshalBinary() (data []byte, err error) {

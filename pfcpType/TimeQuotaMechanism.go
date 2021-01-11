@@ -1,5 +1,5 @@
 package pfcpType
 
 type TimeQuotaMechanism struct {
-	TimeQuotaMechanismdata []byte
+	TimeQuotaMechanismdata []byte `json:"timeQuotaMechanismdata"`
 }

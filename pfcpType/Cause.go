@@ -28,7 +28,7 @@ const (
 )
 
 type Cause struct {
-	CauseValue uint8
+	CauseValue uint8 `json:"causeValue"`
 }
 
 func (c *Cause) MarshalBinary() (data []byte, err error) {

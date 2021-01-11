@@ -5,7 +5,7 @@ import (
 )
 
 type PFCPSRRspFlags struct {
-	Drobu bool
+	Drobu bool `json:"drobu"`
 }
 
 func (p *PFCPSRRspFlags) MarshalBinary() (data []byte, err error) {

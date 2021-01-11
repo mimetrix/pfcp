@@ -7,16 +7,16 @@ import (
 )
 
 type UserPlaneIPResourceInformation struct {
-	Assosi          bool
-	Assoni          bool
-	Teidri          uint8 // 0x00011100
-	V6              bool
-	V4              bool
-	TeidRange       uint8
-	Ipv4Address     net.IP
-	Ipv6Address     net.IP
-	NetworkInstance Dnn
-	SourceInterface uint8 // 0x00001111
+	Assosi          bool   `json:"assosi"`
+	Assoni          bool   `json:"assoni"`
+	Teidri          uint8  `json:"teidri"` // 0x00011100
+	V6              bool   `json:"v6"`
+	V4              bool   `json:"v4"`
+	TeidRange       uint8  `json:"teidRange"`
+	Ipv4Address     net.IP `json:"ipv4Address"`
+	Ipv6Address     net.IP `json:"ipv6Address"`
+	NetworkInstance Dnn    `json:"networkInstance"`
+	SourceInterface uint8  `json:"sourceInterface"` // 0x00001111
 }
 
 func (u *UserPlaneIPResourceInformation) MarshalBinary() (data []byte, err error) {

@@ -1,5 +1,5 @@
 package pfcpType
 
 type UserPlanePathFailureReport struct {
-	UserPlanePathFailureReportdata []byte
+	UserPlanePathFailureReportdata []byte `json:"userPlanePathFailureReportdata"`
 }

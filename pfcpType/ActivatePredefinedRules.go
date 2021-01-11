@@ -1,7 +1,7 @@
 package pfcpType
 
 type ActivatePredefinedRules struct {
-	PredefinedRulesName []byte
+	PredefinedRulesName []byte `json:"predefinedRulesName"`
 }
 
 func (a *ActivatePredefinedRules) MarshalBinary() (data []byte, err error) {

@@ -13,7 +13,7 @@ const (
 )
 
 type SourceInterface struct {
-	InterfaceValue uint8 // 0x00001111
+	InterfaceValue uint8 `json:"interfaceValue"` // 0x00001111
 }
 
 func (s *SourceInterface) MarshalBinary() (data []byte, err error) {

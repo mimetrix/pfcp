@@ -6,17 +6,17 @@ import (
 )
 
 type SDFFilter struct {
-	Bid                     bool
-	Fl                      bool
-	Spi                     bool
-	Ttc                     bool
-	Fd                      bool
-	LengthOfFlowDescription uint16
-	FlowDescription         []byte
-	TosTrafficClass         []byte
-	SecurityParameterIndex  []byte
-	FlowLabel               []byte
-	SdfFilterId             uint32
+	Bid                     bool   `json:"bid"`
+	Fl                      bool   `json:"fl"`
+	Spi                     bool   `json:"spi"`
+	Ttc                     bool   `json:"ttc"`
+	Fd                      bool   `json:"fd"`
+	LengthOfFlowDescription uint16 `json:"lengthOfFlowDescription"`
+	FlowDescription         []byte `json:"flowDescription"`
+	TosTrafficClass         []byte `json:"tosTrafficClass"`
+	SecurityParameterIndex  []byte `json:"securityParameterIndex"`
+	FlowLabel               []byte `json:"flowLabel"`
+	SdfFilterId             uint32 `json:"sdfFilterId"`
 }
 
 func (s *SDFFilter) MarshalBinary() (data []byte, err error) {

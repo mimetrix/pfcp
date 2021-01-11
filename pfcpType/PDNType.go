@@ -14,7 +14,7 @@ const (
 )
 
 type PDNType struct {
-	PdnType uint8 // 0x00000111
+	PdnType uint8 `json:"pdnType"` // 0x00000111
 }
 
 func (p *PDNType) MarshalBinary() (data []byte, err error) {

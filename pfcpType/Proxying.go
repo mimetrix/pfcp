@@ -1,5 +1,5 @@
 package pfcpType
 
 type Proxying struct {
-	Proxyingdata []byte
+	Proxyingdata []byte `json:"proxyingdata"`
 }

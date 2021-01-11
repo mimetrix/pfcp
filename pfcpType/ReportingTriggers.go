@@ -5,20 +5,20 @@ import (
 )
 
 type ReportingTriggers struct {
-	Liusa bool
-	Droth bool
-	Stopt bool
-	Start bool
-	Quhti bool
-	Timth bool
-	Volth bool
-	Perio bool
-	Evequ bool
-	Eveth bool
-	Macar bool
-	Envcl bool
-	Timqu bool
-	Volqu bool
+	Liusa bool `json:"liusa"`
+	Droth bool `json:"droth"`
+	Stopt bool `json:"stopt"`
+	Start bool `json:"start"`
+	Quhti bool `json:"quhti"`
+	Timth bool `json:"timth"`
+	Volth bool `json:"volth"`
+	Perio bool `json:"perio"`
+	Evequ bool `json:"evequ"`
+	Eveth bool `json:"eveth"`
+	Macar bool `json:"macar"`
+	Envcl bool `json:"envcl"`
+	Timqu bool `json:"timqu"`
+	Volqu bool `json:"volqu"`
 }
 
 func (r *ReportingTriggers) MarshalBinary() (data []byte, err error) {

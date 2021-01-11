@@ -1,5 +1,5 @@
 package pfcpType
 
 type EthernetFilterID struct {
-	EthernetFilterIDdata []byte
+	EthernetFilterIDdata []byte `json:"ethernetFilterIDdata"`
 }

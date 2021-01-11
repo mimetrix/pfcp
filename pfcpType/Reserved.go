@@ -1,5 +1,5 @@
 package pfcpType
 
 type Reserved struct {
-	Reserveddata []byte
+	Reserveddata []byte `json:"reserveddata"`
 }

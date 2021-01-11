@@ -6,7 +6,7 @@ import (
 )
 
 type InactivityDetectionTime struct {
-	InactivityDetectionTime uint32
+	InactivityDetectionTime uint32 `json:"inactivityDetectionTime"`
 }
 
 func (i *InactivityDetectionTime) MarshalBinary() (data []byte, err error) {

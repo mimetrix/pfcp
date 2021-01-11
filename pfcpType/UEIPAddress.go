@@ -6,13 +6,13 @@ import (
 )
 
 type UEIPAddress struct {
-	Ipv6d                    bool
-	Sd                       bool
-	V4                       bool
-	V6                       bool
-	Ipv4Address              net.IP
-	Ipv6Address              net.IP
-	Ipv6PrefixDelegationBits uint8
+	Ipv6d                    bool   `json:"ipv6d"`
+	Sd                       bool   `json:"sd"`
+	V4                       bool   `json:"v4"`
+	V6                       bool   `json:"v6"`
+	Ipv4Address              net.IP `json:"ipv4Address"`
+	Ipv6Address              net.IP `json:"ipv6Address"`
+	Ipv6PrefixDelegationBits uint8  `json:"ipv6PrefixDelegationBits"`
 }
 
 func (u *UEIPAddress) MarshalBinary() (data []byte, err error) {

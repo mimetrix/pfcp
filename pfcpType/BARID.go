@@ -5,7 +5,7 @@ import (
 )
 
 type BARID struct {
-	BarIdValue uint8
+	BarIdValue uint8 `json:"barIdValue"`
 }
 
 func (b *BARID) MarshalBinary() (data []byte, err error) {

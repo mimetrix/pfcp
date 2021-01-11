@@ -6,11 +6,11 @@ import (
 )
 
 type HeaderEnrichment struct {
-	HeaderType               uint8 // 0x00011111
-	LengthOfHeaderFieldName  uint8
-	HeaderFieldName          []byte
-	LengthOfHeaderFieldValue uint8
-	HeaderFieldValue         []byte
+	HeaderType               uint8  `json:"headerType"` // 0x00011111
+	LengthOfHeaderFieldName  uint8  `json:"lengthOfHeaderFieldName"`
+	HeaderFieldName          []byte `json:"headerFieldName"`
+	LengthOfHeaderFieldValue uint8  `json:"lengthOfHeaderFieldValue"`
+	HeaderFieldValue         []byte `json:"headerFieldValue"`
 }
 
 func (h *HeaderEnrichment) MarshalBinary() (data []byte, err error) {

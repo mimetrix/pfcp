@@ -1,5 +1,5 @@
 package pfcpType
 
 type UsageReportPFCPSessionDeletionResponse struct {
-	UsageReportPFCPSessionDeletionResponsedata []byte
+	UsageReportPFCPSessionDeletionResponsedata []byte `json:"usageReportPFCPSessionDeletionResponsedata"`
 }

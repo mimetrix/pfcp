@@ -5,9 +5,9 @@ import (
 )
 
 type MeasurementInformation struct {
-	Radi bool
-	Inam bool
-	Mbqe bool
+	Radi bool `json:"radi"`
+	Inam bool `json:"inam"`
+	Mbqe bool `json:"mbqe"`
 }
 
 func (m *MeasurementInformation) MarshalBinary() (data []byte, err error) {

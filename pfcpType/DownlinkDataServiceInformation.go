@@ -6,10 +6,10 @@ import (
 )
 
 type DownlinkDataServiceInformation struct {
-	Qfii                        bool
-	Ppi                         bool
-	PagingPolicyIndicationValue uint8 // 0x00111111
-	Qfi                         uint8 // 0x00111111
+	Qfii                        bool  `json:"qfii"`
+	Ppi                         bool  `json:"ppi"`
+	PagingPolicyIndicationValue uint8 `json:"pagingPolicyIndicationValue"` // 0x00111111
+	Qfi                         uint8 `json:"qfi"`                         // 0x00111111
 }
 
 func (d *DownlinkDataServiceInformation) MarshalBinary() (data []byte, err error) {

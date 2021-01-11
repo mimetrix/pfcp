@@ -6,8 +6,8 @@ import (
 )
 
 type FailedRuleID struct {
-	RuleIdType  uint8 // 0x00001111
-	RuleIdValue []byte
+	RuleIdType  uint8  `json:"ruleIdType"` // 0x00001111
+	RuleIdValue []byte `json:"ruleIdValue"`
 }
 
 func (f *FailedRuleID) MarshalBinary() (data []byte, err error) {

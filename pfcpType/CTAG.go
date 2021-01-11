@@ -1,5 +1,5 @@
 package pfcpType
 
 type CTAG struct {
-	CTAGdata []byte
+	CTAGdata []byte `json:"ctaGdata"`
 }

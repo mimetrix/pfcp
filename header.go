@@ -26,14 +26,14 @@ func init() {
 }
 
 type Header struct {
-	Version         uint8
-	MP              uint8
-	S               uint8
-	MessageType     MessageType
-	MessageLength   uint16
-	SEID            uint64
-	SequenceNumber  uint32
-	MessagePriority uint8
+	Version         uint8       `json:"version"`
+	MP              uint8       `json:"mp"`
+	S               uint8       `json:"s"`
+	MessageType     MessageType `json:"messageType"`
+	MessageLength   uint16      `json:"messageLength"`
+	SEID            uint64      `json:"seid"`
+	SequenceNumber  uint32      `json:"sequenceNumber"`
+	MessagePriority uint8       `json:"messagePriority"`
 }
 
 func (h *Header) MarshalBinary() (data []byte, err error) {

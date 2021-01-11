@@ -5,11 +5,11 @@ import (
 )
 
 type ApplyAction struct {
-	Dupl bool
-	Nocp bool
-	Buff bool
-	Forw bool
-	Drop bool
+	Dupl bool `json:"dupl"`
+	Nocp bool `json:"nocp"`
+	Buff bool `json:"buff"`
+	Forw bool `json:"forw"`
+	Drop bool `json:"drop"`
 }
 
 func (a *ApplyAction) MarshalBinary() (data []byte, err error) {

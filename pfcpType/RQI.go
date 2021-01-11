@@ -1,5 +1,5 @@
 package pfcpType
 
 type RQI struct {
-	RQIdata []byte
+	RQIdata []byte `json:"rqIdata"`
 }

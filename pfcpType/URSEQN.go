@@ -6,7 +6,7 @@ import (
 )
 
 type URSEQN struct {
-	UrseqnValue uint32
+	UrseqnValue uint32 `json:"urseqnValue"`
 }
 
 func (u *URSEQN) MarshalBinary() (data []byte, err error) {

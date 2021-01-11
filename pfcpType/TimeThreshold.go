@@ -6,7 +6,7 @@ import (
 )
 
 type TimeThreshold struct {
-	TimeThreshold uint32
+	TimeThreshold uint32 `json:"timeThreshold"`
 }
 
 func (t *TimeThreshold) MarshalBinary() (data []byte, err error) {

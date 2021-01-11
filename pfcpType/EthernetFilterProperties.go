@@ -1,5 +1,5 @@
 package pfcpType
 
 type EthernetFilterProperties struct {
-	EthernetFilterPropertiesdata []byte
+	EthernetFilterPropertiesdata []byte `json:"ethernetFilterPropertiesdata"`
 }

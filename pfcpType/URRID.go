@@ -6,7 +6,7 @@ import (
 )
 
 type URRID struct {
-	UrrIdValue uint32
+	UrrIdValue uint32 `json:"urrIdValue"`
 }
 
 func (u *URRID) MarshalBinary() (data []byte, err error) {

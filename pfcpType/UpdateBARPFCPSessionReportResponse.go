@@ -1,5 +1,5 @@
 package pfcpType
 
 type UpdateBARPFCPSessionReportResponse struct {
-	UpdateBARPFCPSessionReportResponsedata []byte
+	UpdateBARPFCPSessionReportResponsedata []byte `json:"updateBARPFCPSessionReportResponsedata"`
 }

@@ -7,7 +7,7 @@ import (
 )
 
 type DLBufferingSuggestedPacketCount struct {
-	PacketCountValue uint16
+	PacketCountValue uint16 `json:"packetCountValue"`
 }
 
 func (d *DLBufferingSuggestedPacketCount) MarshalBinary() (data []byte, err error) {

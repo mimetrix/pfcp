@@ -1,5 +1,5 @@
 package pfcpType
 
 type Ethertype struct {
-	Ethertypedata []byte
+	Ethertypedata []byte `json:"ethertypedata"`
 }

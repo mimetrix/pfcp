@@ -6,7 +6,7 @@ import (
 )
 
 type EthernetInactivityTimer struct {
-	EthernetInactivityTimer uint32
+	EthernetInactivityTimer uint32 `json:"ethernetInactivityTimer"`
 }
 
 func (e *EthernetInactivityTimer) MarshalBinary() (data []byte, err error) {

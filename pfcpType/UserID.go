@@ -1,5 +1,5 @@
 package pfcpType
 
 type UserID struct {
-	UserIDdata []byte
+	UserIDdata []byte `json:"userIDdata"`
 }

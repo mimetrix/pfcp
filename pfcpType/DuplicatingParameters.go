@@ -1,5 +1,5 @@
 package pfcpType
 
 type DuplicatingParameters struct {
-	DuplicatingParametersdata []byte
+	DuplicatingParametersdata []byte `json:"duplicatingParametersdata"`
 }
