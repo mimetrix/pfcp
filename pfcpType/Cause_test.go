@@ -1,9 +1,20 @@
 package pfcpType
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
+
+func TestJSONMarshalCause(t *testing.T) {
+	testData := Cause{
+		CauseValue: CauseRequestRejected,
+	}
+	buf, err := testData.MarshalJSON()
+
+	assert.Nil(t, err)
+	assert.Equal(t, []byte(`"RequestRejected"`), buf)
+}
 
 func TestMarshalCause(t *testing.T) {
 	testData := Cause{

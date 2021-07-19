@@ -2,6 +2,7 @@ package pfcpType
 
 import (
 	"fmt"
+	"strconv"
 )
 
 // Acceptance in a response
@@ -27,8 +28,35 @@ const (
 	CauseSystemFailure
 )
 
+var CauseStrings = map[uint8]string{
+	CauseRequestAccepted:                 "RequestAccepted",
+	CauseRequestRejected:                 "RequestRejected",
+	CauseSessionContextNotFound:          "SessionContextNotFound",
+	CauseMandatoryIeMissing:              "MandatoryIeMissing",
+	CauseConditionalIeMissing:            "ConditionalIeMissing",
+	CauseInvalidLength:                   "InvalidLength",
+	CauseMandatoryIeIncorrect:            "MandatoryIeIncorrect",
+	CauseInvalidForwardingPolicy:         "InvalidForwardingPolicy",
+	CauseInvalidFTeidAllocationOption:    "InvalidFTeidAllocationOption",
+	CauseNoEstablishedPfcpAssociation:    "NoEstablishedPfcpAssociation",
+	CauseRuleCreationModificationFailure: "RuleCreationModificationFailure",
+	CausePfcpEntityInCongestion:          "PfcpEntityInCongestion",
+	CauseNoResourcesAvailable:            "NoResourcesAvailable",
+	CauseServiceNotSupported:             "ServiceNotSupported",
+	CauseSystemFailure:                   "SystemFailure",
+}
+
 type Cause struct {
 	CauseValue uint8 `json:"causeValue"`
+}
+
+func (c *Cause) MarshalJSON() ([]byte, error) {
+	v, ok := CauseStrings[c.CauseValue]
+	if !ok {
+		v = "Unknown"
+	}
+
+	return []byte(strconv.Quote(v)), nil
 }
 
 func (c *Cause) MarshalBinary() (data []byte, err error) {

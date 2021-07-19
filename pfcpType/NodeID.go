@@ -12,9 +12,34 @@ const (
 	NodeIdTypeFqdn
 )
 
+var NodeIdTypeStrings = map[uint8]string{
+	NodeIdTypeIpv4Address: "IPv4",
+	NodeIdTypeIpv6Address: "IPv6",
+	NodeIdTypeFqdn:        "Fqdn",
+}
+
 type NodeID struct {
 	NodeIdType  uint8  `json:"nodeIdType"` // 0x00001111
 	NodeIdValue []byte `json:"nodeIdValue"`
+}
+
+func (n *NodeID) MarshalJSON() (data []byte, err error) {
+	s, ok := NodeIdTypeStrings[n.NodeIdType]
+	if !ok {
+		s = "Unknown"
+	}
+
+	var v string
+	switch n.NodeIdType {
+	case NodeIdTypeIpv4Address, NodeIdTypeIpv6Address:
+		v = net.IP(n.NodeIdValue).String()
+	case NodeIdTypeFqdn:
+		v = string(n.NodeIdValue)
+	default:
+		v = net.IPv4zero.String()
+	}
+
+	return []byte(`{"type":"` + s + `","value":"` + v + `"}`), nil
 }
 
 func (n *NodeID) MarshalBinary() (data []byte, err error) {
